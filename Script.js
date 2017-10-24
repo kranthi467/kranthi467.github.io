@@ -37,7 +37,7 @@ function getAllFiles(){
             images.innerHTML= "";
             result.entries.forEach(function(element) {
                 var ImgUrl = url+element.name;
-                var ImageTag = `<img src=${ImgUrl} ><br><br>`;
+                var ImageTag = `<img src=${ImgUrl} height="40px"><br><br>`;
                 images.innerHTML += ImageTag;
             });
         }
