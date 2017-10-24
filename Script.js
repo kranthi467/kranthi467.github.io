@@ -36,7 +36,7 @@ function getAllFiles(){
             console.log(result);
             images.innerHTML= "";
             result.entries.forEach(function(element) {
-                var ImgUrl = url+element.name;
+                var ImgUrl = blobService.getUrl("images", element.name);
                 var ImageTag = `<img src=${ImgUrl} style="height:400px; margin: 10px">`;
                 images.innerHTML += ImageTag;
             });
