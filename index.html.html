@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script type="text/javascript" src="ToDo.js"></script>
+    </head>
+<body>
+    <div class='container-fluid'>
+        <div  class='row'>
+            <div class="col-lg-12">
+                <div  class='center-block m-4' align='center'>
+                    <h1>ToDo</h1>
+                </div>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-lg-3'></div>
+            <div class='col-lg-2'>
+                <table id="progress">
+                    <tr>
+                        <td><label>Pending Tasks:</label></td>
+                        <td class="float-right">0</td>
+                    </tr>
+                    <tr>
+                        <td><label>Completed Tasks:</label></td>
+                        <td class="float-right">0</td>
+                    </tr>
+                    <tr>
+                        <td><label>Progress:</label></td>
+                        <td class="float-right">0.00%</td>
+                    </tr>
+                </table>
+            </div>
+            <div class='col-lg-2 border rounded'>
+                <div class="m-3">
+                    <div id='errors' class='text-danger small'></div>
+                    <div class="form-group">
+                        <label for="taskname">Task Name:</label>
+                        <input type="text" class="form-control" name="taskname" id="taskname" placeholder="Task Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status:</label>
+                        <select id='status' name="status" class="form-control">
+                            <option value="1">Pending</option>
+                            <option value="2">Completed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tags">Tags:</label>
+                        <input type="text" class="form-control" name="tags" id="tags" placeholder="add tags here">
+                        <button class="btn" onclick="addTag()">+</button>
+                        <div id="tagdisplay" class="float-right"></div>
+                    </div>
+                    <button type="button" onclick="addTask()" class="btn btn-default float-right mb-3">Save</button>
+                </div>
+            </div> 
+            <div class='col-lg-2' id="testdisplay"></div>
+        </div>
+        <div class="row m-4">
+            <div class='col-lg-3'></div>
+            <div class='input-group col-lg-2'>
+                <input id="search" type="text" class="form-control border-right-0" placeholder="Search..." oninput="hidePendingAndSearch()"/>
+                <span class="input-group-addon bg-white">
+                    <i class="material-icons">search</i> 
+                </span>
+            </div>
+            <div class='col-lg-4 mt-2'>
+                <a href="#" class="float-right" id="clearcompleted" onclick="deleteCompleted()">X Clear Completed</a>
+                <label class="float-right"><input type="checkbox" id="showpending" onclick="hidePendingAndSearch()">&nbspShow Pending&nbsp&nbsp&nbsp</label>
+            </div>
+        </div>
+        <div class="row m-4">
+            <div class='col-lg-3'></div>
+            <div class='col-lg-6'>
+                <table class="table">
+                    <thead id="displayhead">
+                        <tr>
+                            <th>Complete<i class="material-icons">arrow_drop_down</i></th>
+                            <th>Task Name<i class="material-icons">arrow_drop_down</i></th>
+                            <th>Tags<i class="material-icons">arrow_drop_down</i></th>
+                            <th>Status<i class="material-icons">arrow_drop_down</i></th>
+                            <th>Actions<i class="material-icons">arrow_drop_down</i></th>
+                        </tr>
+                    </thead>
+                    <tbody id="displaybody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<html>
